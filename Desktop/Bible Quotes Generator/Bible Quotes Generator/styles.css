@@ -1,0 +1,54 @@
+*{
+    box-sizing: border-box;
+}
+html,
+body{
+    margin: 0;
+    padding: 5px;
+}
+body{
+    background-image: url(./img/ocean.jpg);
+}
+h1{
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: darkgrey;
+
+}
+#time{
+    text-align: center;
+}
+#datetime{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 150%;
+    color: floralwhite;
+    text-align: center;
+}
+#displayVerse{
+    background-color: burlywood;
+    padding: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-radius: 20px;
+}
+#btn{
+    text-align: center;
+}
+#button{
+    padding: 1rem;
+    background-color: darkgreen;
+    cursor: pointer;
+}
+.icon{
+    text-align: center;
+}
+.fa-twitter{
+    color: blue;
+}
+.contributors a{
+    font-size: 150%;
+    color: cornsilk;
+    text-decoration: none;
+}
+.contributors{
+    text-align: center;
+}
