@@ -1,0 +1,29 @@
+.App {
+  text-align: center;
+}
+
+.container{
+  padding:  0 1rem;
+}
+
+.btn{
+  display: inline-block;
+  border: none;
+  padding: 7px 20px;
+  cursor: pointer;
+}
+
+.btn:hover{
+  background: #666;
+}
+ link{
+   color: white
+ }
+ .myLink{
+   color: #fff;
+   text-decoration: none;
+ }
+ h1,
+ .myLink{
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+ }
