@@ -7,7 +7,7 @@ import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, 
 import useStyles from './styles';
 
 
-const List = () => {
+const List = ({places}) => {
   // hook for styles
   const classes = useStyles();
 
@@ -17,18 +17,7 @@ const List = () => {
   // hook for rating
   const [ rating, setRating ] = useState('');
 
-  // for places 
-  const places = [
-    {name: 'Cool Drive-throughs'},
-    {name:'Best Beer'},
-    {name:'Best Steak'},
-    {name: 'Cool Drive-throughs'},
-    {name:'Best Beer'},
-    {name:'Best Steak'},
-    {name: 'Cool Drive-throughs'},
-    {name:'Best Beer'},
-    {name:'Best Steak'}
-  ]
+  
 
   return (
     <div className={classes.container}>
