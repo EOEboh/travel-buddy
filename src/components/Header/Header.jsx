@@ -13,10 +13,10 @@ const Header = () => {
 
 
   return (
-      <AppBar position='static'>
+      <AppBar position='static' className={classes.appbar}>
           <Toolbar className={classes.toolbar}>
               <Typography variant='h5' className={classes.title}>
-                  Travel Buddy
+                  Travel Buddy 🚶‍♂️
               </Typography>
               <Typography variant='h6' className={classes.title}>
                   Explore as you move
