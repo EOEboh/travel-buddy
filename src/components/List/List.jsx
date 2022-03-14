@@ -7,25 +7,21 @@ import { CircularProgress, Grid, Typography, InputLabel, MenuItem, FormControl, 
 import useStyles from './styles';
 
 
-const List = ({places, childClicked, isLoading}) => {
+const List = ({places, childClicked, isLoading, type, setType, rating, setRating}) => {
   // hook for styles
   const classes = useStyles();
   
-  // hook for type
-  const [ type, setType ] = useState('restaurants');
-  
-  // hook for rating
-  const [ rating, setRating ] = useState('');
   
   // hook for creating an array to match each child clicked
   const [elRefs, setElRefs] = useState([]);
   
   console.log({childClicked})
+
   useEffect(() => {
       const refs = Array(places?.length).fill().map((_, i) => elRefs[i] || createRef());
 
       setElRefs(refs);
-  }, [places]);
+  }, [places, elRefs]);
 
   return (
     <div className={classes.container}>
@@ -61,7 +57,7 @@ const List = ({places, childClicked, isLoading}) => {
       <Grid container spacing={3} className={classes.list}>
         {places?.map( (place, i) => 
         (
-          <Grid ref={elRefs[i]} item key={i} xs={12}> 
+          <Grid item key={i} xs={12}> 
             <PlaceDetails
              place={place}
              selected={Number(childClicked) === i}
