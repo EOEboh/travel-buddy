@@ -7,7 +7,7 @@ import Map from './components/Map/Map';
 import { CssBaseline, Grid } from '@material-ui/core';
 
 // api data
-import { getPlacesData } from './api';
+import { getPlacesData, getWeather } from './api';
 
 const App = () => {
 
@@ -21,6 +21,7 @@ const App = () => {
   // state for the filtered places based on rating
   const [ filteredPlaces, setFilteredPlaces ] = useState([]);
     
+    const [ weatherData, setWeatherData ] = useState([]);
     const [ places, setPlaces ] = useState([]);
     const [ coordinates, setCoordinates ] = useState({});
     const [ bounds, setBounds ] = useState({});
@@ -37,23 +38,30 @@ const App = () => {
         navigator.geolocation.getCurrentPosition( ({coords: {latitude, longitude}}) => {
             setCoordinates( { lat: latitude, lng: longitude });
         } )
-    }, []);
+    }, []); 
 
         // to get the api data depending on the coordinates and bounds and type selection
     useEffect(() => {
+        if(bounds.sw && bounds.ne){
         setIsLoading(true);
+
+        getWeather(coordinates.lat, coordinates.lng)
+            .then((data) => {
+                setWeatherData(data)
+            })
 
         getPlacesData(type, bounds.sw, bounds.ne)
             .then((data) => {
                 // console.log(data)
-                setPlaces(data);
+                setPlaces(data?.filter((place) => place.name && place.num_reviews > 0 ));
                 setFilteredPlaces([])
                 setIsLoading(false);
             })
-    }, [type, coordinates, bounds]);
+        }
+    }, [type, bounds]);
 
     useEffect(()=> {
-        const filteredPlaces = places.filter((place) => place.rating > rating )
+        const filteredPlaces = places?.filter((place) => place.rating >= rating )
         
         setFilteredPlaces(filteredPlaces);
     },[rating])
@@ -83,6 +91,7 @@ const App = () => {
                     coordinates={coordinates}
                     places={filteredPlaces.length ? filteredPlaces : places}
                     setChildClicked={setChildClicked}
+                    weatherData={weatherData}
                 />
             </Grid>
         </Grid>

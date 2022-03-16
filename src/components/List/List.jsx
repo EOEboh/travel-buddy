@@ -21,7 +21,7 @@ const List = ({places, childClicked, isLoading, type, setType, rating, setRating
       const refs = Array(places?.length).fill().map((_, i) => elRefs[i] || createRef());
 
       setElRefs(refs);
-  }, [places, elRefs]);
+  }, [places]);
 
   return (
     <div className={classes.container}>
