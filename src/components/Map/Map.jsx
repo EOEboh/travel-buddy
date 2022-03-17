@@ -49,11 +49,15 @@ const Map = ({ setCoordinates, setBounds, coordinates, places, setChildClicked, 
                </div>
 
     ))}
-    {weatherData?.list?.map((data, i)=>{
+    {weatherData?.list?.map((data, i)=>(
         <div key={i} lat={data.coord.lat} lng={data.coord.lon}>
-          <img height={100} src={`https://openweathermap.org/img/w/${data.weather[0].icon}.png`}/>
+          <img height={100} src={`https://openweathermap.org/img/w/${data.weather[0].icon}.png`} alt='weatherIcon'/>
+          <div>
+            {data.weather[0].description}
+          </div>
         </div>
-    })}
+  ))}
+    
     </GoogleMapReact>
   </div>);
 };
