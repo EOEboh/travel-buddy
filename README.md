@@ -7,7 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Description
 This is a travel app that requires your location permission. It displays the nearest real-time restaurants, hotels and other attractions around you using your geographical location coordinates. This information is dynamic, it changes as you change location.
 ## Installation
-Run `npm start` on your terminal and open up [localhost:300](http://localhost:3000) on your browser and the project will open live.
+Run `npm start` on your terminal and open up [localhost:3000](http://localhost:3000) on your browser and the project will open live.
 ## Usage
 This app requires your location permission, once enabled, you would see the various **restaurants, hotels,** and **other attractions** available near you. This is made possible by the coordinates of your current location as provided by the Google Map API. 
 
